@@ -78,12 +78,12 @@ int main(int ac, char **av)
 	t_ops ops= {0};
 	t_config config = parser(av,&a);
     t_program p;
-	innit_stack_b(&b,a.size);
-    float d = disorder(a.data,a.size);
-    p.a = &a;
+	p.a = &a;
     p.b = &b;
     p.ops = &ops;
     p.config = &config;
+	innit_stack_b(&b,a.size);
+    float d = disorder(a.data,a.size);
     // printf("--- BEFORE SORTING ---\n");
     // print_stack(&a, "A");
     // print_stack(&b, "B");

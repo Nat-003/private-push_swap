@@ -7,7 +7,9 @@ CC          = cc
 # Source Files
 # We list them explicitly to be safe, but include the 'operation' subdirectory
 SRCS        = main.c \
-              parser.c \
+              parser/parser.c \
+			  parser/parser_utils1.c \
+			  parser/parser_utils2.c \
               utils.c \
               ft_split.c \
               disorder.c \

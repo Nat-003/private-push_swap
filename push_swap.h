@@ -45,6 +45,13 @@ typedef struct s_program
     t_config *config;
 } t_program;
 
+//parser function
+void	free_split(char **s);
+int	is_valid_num(char *s);
+long	ft_atol(char *s);
+int	is_dup(t_stack *a, int value);
+void	push_value_to_a(t_stack *a, int value);
+void	free_split(char **s);
 
 // helper function
 void innit_stack_b(t_stack *b,int size);
@@ -53,7 +60,7 @@ void error_exit();
 
 char	**ft_split(char const *s, char c);
 // parser
-t_config parser(char **av,t_stack *a);
+t_config	parser(char **av, t_stack *a);
 
 /* Swap operations */
 void    sa(t_program *p);

@@ -170,7 +170,7 @@ void bucket_sort(t_program *p)
     int i, j, bucket_count, bucket_size, current_min, current_max;
 
     copy = copy_arr(p->a);
-	if (!copy_arr)
+	if (!&copy_arr)
 		return ; 
 
     sort_array(copy, original_size);
