@@ -71,6 +71,19 @@ void set_config(t_program *p, float d)
         select_algorithm(d,p);
     }
 }
+int is_sorted(t_stack *a)
+{
+    int i;
+
+    i = 0;
+    while (i < a->size - 1)
+    {
+        if (a->data[i] > a->data[i +1])
+            return (0);
+        i++;
+    }
+    return (1);
+}
 int main(int ac, char **av)
 {
 	t_stack a;
@@ -88,7 +101,12 @@ int main(int ac, char **av)
     // print_stack(&a, "A");
     // print_stack(&b, "B");
     // printf("----------------------\n\n");
+    if(is_sorted(&a) == 1)
+    {
+        return (0);
+    }
 	set_config(&p, d);
+    return (1);
 		
 //     printf("\n--- AFTER SORTING ---\n");
 //     print_stack(&a, "A");
