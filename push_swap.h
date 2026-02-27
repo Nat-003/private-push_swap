@@ -52,9 +52,10 @@ long	ft_atol(char *s);
 int	is_dup(t_stack *a, int value);
 void	push_value_to_a(t_stack *a, int value);
 void	free_split(char **s);
+void free_all(char **s, t_stack *a);
 
 // helper function
-void innit_stack_b(t_stack *b,int size);
+void innit_stack_b(t_stack *a, t_stack *b,int size);
 void error_exit();
 
 

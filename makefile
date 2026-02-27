@@ -2,7 +2,7 @@ NAME        = push_swap
 
 # Compiler and Flags
 CC          = cc
-# CFLAGS      = -Wall -Wextra -Werror -I.
+# CFLAGS      = -Wall -Wextra -Werror -I. -g
 
 # Source Files
 # We list them explicitly to be safe, but include the 'operation' subdirectory

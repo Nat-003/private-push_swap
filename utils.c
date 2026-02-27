@@ -1,10 +1,10 @@
 #include "push_swap.h"
 
-void innit_stack_b(t_stack *b,int size)
+void innit_stack_b(t_stack *a, t_stack *b,int size)
 {
 	b->data = malloc(sizeof(int) * size);
 	if (!b->data)
-		error_exit();
+		free_all(NULL, a);
 	b->size = 0;
 }
 void radix_ops(t_program *p, int n, int bit)

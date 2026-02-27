@@ -6,7 +6,7 @@
 /*   By: nappasam <nappasam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 20:49:34 by nappasam          #+#    #+#             */
-/*   Updated: 2026/02/23 20:57:30 by nappasam         ###   ########.fr       */
+/*   Updated: 2026/02/27 14:50:21 by nappasam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ void	validate(char **split2, t_stack *a)
 	while (split2[count])
 	{
 		if (!is_valid_num(split2[count]))
-			error_exit();
+			free_all(split2, a);
 		value = ft_atol(split2[count]);
 		if (value < INT_MIN || value > INT_MAX)
-			error_exit();
+			free_all(split2, a);
 		if (is_dup(a, (int)value))
-			error_exit();
+			free_all(split2, a);
 		push_value_to_a(a, (int)value);
 		count++;
 	}
@@ -62,7 +62,7 @@ void	validate_and_build(char **av, t_stack *a, int i)
 	{
 		split2 = ft_split(av[i], ' ');
 		if (!split2)
-			error_exit();
+			free_all(NULL, a);
 		validate(split2, a);
 		free_split(split2);
 		i++;
@@ -95,4 +95,25 @@ t_config	parser(char **av, t_stack *a)
 		config.adaptative = 1;
 	validate_and_build(av, a, i);
 	return (config);
+}
+
+void free_all(char **s, t_stack *a)
+{
+    int i;
+    int	j;
+
+    j = 0;
+    i = 0;
+    if (s)
+    {
+        while (s[j])
+        {
+            free(s[j]);
+            j++;
+        }
+        free(s);
+    }
+    if (a->data)
+        free(a->data);
+    error_exit();
 }

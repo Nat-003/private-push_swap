@@ -121,7 +121,6 @@ void push_a_to_b(t_program *p, int original_size)
 	int bucket_size;
 	int current_min;
 	int current_max;
-
 	innit_vars(&bucket_count,&bucket_size,&current_min,&current_max,original_size);
 	i = 0;
     while (i < bucket_count)

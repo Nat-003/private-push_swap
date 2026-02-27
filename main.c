@@ -15,7 +15,7 @@ void select_algorithm(float d, t_program *p)
     {
         bubble_sort(p);
     }
-    else if (d < 0.50f)
+    else if (d <= 0.50f)
     {
         bucket_sort(p);
     }
@@ -95,18 +95,21 @@ int main(int ac, char **av)
     p.b = &b;
     p.ops = &ops;
     p.config = &config;
-	innit_stack_b(&b,a.size);
+	innit_stack_b(&a,&b,a.size);
     float d = disorder(a.data,a.size);
     // printf("--- BEFORE SORTING ---\n");
     // print_stack(&a, "A");
     // print_stack(&b, "B");
     // printf("----------------------\n\n");
-    if(is_sorted(&a) == 1)
+    if (is_sorted(&a) != 1)
     {
-        return (0);
+        set_config(&p, d);
     }
-	set_config(&p, d);
-    return (1);
+
+    free(b.data);
+    free(a.data);
+    return (0);
+
 		
 //     printf("\n--- AFTER SORTING ---\n");
 //     print_stack(&a, "A");
