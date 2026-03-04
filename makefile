@@ -20,7 +20,9 @@ SRCS        = main.c \
               operation/push_op.c \
               operation/reverse_rotate_op.c \
               operation/rotate_op.c \
-              operation/swap_op.c
+              operation/swap_op.c \
+			  smal_sort/sort_three.c \
+			  smal_sort/sort_five.c
 
 # Object Files
 # This replaces the .c extension with .o

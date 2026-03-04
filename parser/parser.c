@@ -6,7 +6,7 @@
 /*   By: nappasam <nappasam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 20:49:34 by nappasam          #+#    #+#             */
-/*   Updated: 2026/02/27 14:50:21 by nappasam         ###   ########.fr       */
+/*   Updated: 2026/03/04 16:29:07 by nappasam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	cout_total_number(char **av, int k)
 void	validate(char **split2, t_stack *a)
 {
 	int	count;
-	int	value;
+	long value;
 
 	count = 0;
 	while (split2[count])
@@ -68,6 +68,7 @@ void	validate_and_build(char **av, t_stack *a, int i)
 		i++;
 	}
 }
+
 t_config	parser(char **av, t_stack *a)
 {
 	int			i;
@@ -85,7 +86,7 @@ t_config	parser(char **av, t_stack *a)
 	k = i;
 	total = cout_total_number(av, k);
 	if (total == 0)
-		error_exit();
+		exit(1);
 	a->data = malloc(sizeof(int) * total);
 	if (!a->data)
 		error_exit();

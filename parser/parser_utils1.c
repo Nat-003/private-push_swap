@@ -6,7 +6,7 @@
 /*   By: nappasam <nappasam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 20:52:17 by nappasam          #+#    #+#             */
-/*   Updated: 2026/02/23 20:53:57 by nappasam         ###   ########.fr       */
+/*   Updated: 2026/03/04 16:23:45 by nappasam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	set_flags(char *flag, t_config *config)
 int	check_flags(char **av, t_config *config)
 {
 	int	i;
-
+    
 	i = 1;
 	while (av[i] && av[i][0] == '-' && av[i][1] == '-')
 	{

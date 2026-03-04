@@ -45,6 +45,10 @@ typedef struct s_program
     t_config *config;
 } t_program;
 
+void	sort_three(t_program *p);
+void	sort_five(t_program *p);
+
+
 //parser function
 void	free_split(char **s);
 int	is_valid_num(char *s);
@@ -94,12 +98,14 @@ void select_algorithm(float d, t_program *p);
 
 // void bubble_sort(t_stack *a, t_ops *ops);
 void bubble_sort(t_program *p);
-
+void bubble_sorting(t_program *p);
 // bucket sort O(nVn)
 void bucket_sort(t_program *p);
+void bucket_sorting(t_program *p);
 
 // radix sort
 void radix_ops(t_program *p, int n, int bit);
+void radix_lsd_sorting(t_program *p);
 void radix_lsd_sort(t_program *p);
 
 #endif

@@ -13,32 +13,32 @@ void select_algorithm(float d, t_program *p)
 {
     if (d < 0.30f)
     {
-        bubble_sort(p);
+        bubble_sorting(p);
     }
     else if (d <= 0.50f)
     {
-        bucket_sort(p);
+        bucket_sorting(p);
     }
     else
     {
-        radix_lsd_sort(p);
+        radix_lsd_sorting(p);
     }
 }
 void set_bench(t_program *p, float d)
 {
 	if (p->config->simple && p->config->bench)
     {
-		bubble_sort(p);
+		bubble_sorting(p);
 		bench(p->ops,d,p->config);
     }
 	else if (p->config->medium && p->config->bench)
     {
-		bucket_sort(p);
+		bucket_sorting(p);
 		bench(p->ops,d,p->config);
     }
 	else if (p->config->complex && p->config->bench)
     {
-		radix_lsd_sort(p);
+		radix_lsd_sorting(p);
 		bench(p->ops,d,p->config);;
     }
     else if (p->config->adaptative && p->config->bench)
@@ -56,15 +56,15 @@ void set_config(t_program *p, float d)
     }
 	else if (p->config->simple)
 	{
-		bubble_sort(p);
+		bubble_sorting(p);
 	}
 	else if (p->config->medium)
     {
-		bucket_sort(p);
+		bucket_sorting(p);
     }
 	else if (p->config->complex)
     {
-		radix_lsd_sort(p);
+		radix_lsd_sorting(p);
     }
     else if (p->config->adaptative)
     {
@@ -106,13 +106,17 @@ int main(int ac, char **av)
         set_config(&p, d);
     }
 
-    free(b.data);
-    free(a.data);
-    return (0);
-
-		
-//     printf("\n--- AFTER SORTING ---\n");
+// printf("\n--- AFTER SORTING ---\n");
 //     print_stack(&a, "A");
 //     print_stack(&b, "B");
 //     printf("---------------------\n");
+
+    free(b.data);
+    free(a.data);
+
+    
+    return (0);
+
+		
+   
 }
