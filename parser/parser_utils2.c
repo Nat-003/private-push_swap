@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_utils2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nappasam <nappasam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rgliga <rgliga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 20:54:39 by nappasam          #+#    #+#             */
-/*   Updated: 2026/02/23 20:55:36 by nappasam         ###   ########.fr       */
+/*   Updated: 2026/03/05 14:45:21 by rgliga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	is_valid_num(char *s)
 	}
 	return (1);
 }
+
 long	ft_atol(char *s)
 {
 	long	result;
@@ -51,6 +52,7 @@ long	ft_atol(char *s)
 	}
 	return (result * sign);
 }
+
 int	is_dup(t_stack *a, int value)
 {
 	int	i;
@@ -64,6 +66,7 @@ int	is_dup(t_stack *a, int value)
 	}
 	return (0);
 }
+
 void	push_value_to_a(t_stack *a, int value)
 {
 	a->data[a->size] = value;

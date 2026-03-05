@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   radix.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rgliga <rgliga@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/05 16:01:18 by rgliga            #+#    #+#             */
+/*   Updated: 2026/03/05 16:08:31 by rgliga           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	*copy_stack(t_stack *a)
@@ -16,6 +28,7 @@ int	*copy_stack(t_stack *a)
 	}
 	return (tmp);
 }
+
 int	get_pos(int *tmp, int size, int i)
 {
 	int	j;
@@ -70,34 +83,24 @@ void	radix_lsd_sort(t_program *p)
 	int	max;
 	int	max_bit;
 	int	bit;
-	int	i;
-       n = p->a->size;
-        if (n <= 1)
-            return ;
-        map = compress_stack(p->a);
-        max = n - 1;
-        max_bit = get_max_bit(max);
-        bit = 0;
-        while (bit <= max_bit)
-        {
-            radix_ops(p, n, bit);
-            bit++;
-        }
-        i = 0;
-        while (i < n)
-        {
-            p->a->data[i] = map[p->a->data[i]];
-            i++;
-        }
-        free(map); 
-}
 
-void radix_lsd_sorting(t_program *p)
-{
-    if (p->a->size <= 3)
-        sort_three(p);
-    else if (p->a->size <= 5)
-        sort_five(p);
-    else
-    radix_lsd_sort(p);
+	n = p->a->size;
+	if (n <= 1)
+		return ;
+	map = compress_stack(p->a);
+	max = n - 1;
+	max_bit = get_max_bit(max);
+	bit = 0;
+	while (bit <= max_bit)
+	{
+		radix_ops(p, n, bit);
+		bit++;
+	}
+	bit = 0;
+	while (bit < n)
+	{
+		p->a->data[bit] = map[p->a->data[bit]];
+		bit++;
+	}
+	free(map);
 }

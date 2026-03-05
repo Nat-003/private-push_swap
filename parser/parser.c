@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nappasam <nappasam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rgliga <rgliga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 20:49:34 by nappasam          #+#    #+#             */
-/*   Updated: 2026/03/04 16:29:07 by nappasam         ###   ########.fr       */
+/*   Updated: 2026/03/05 14:48:42 by rgliga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../push_swap.h"
 
@@ -35,10 +34,11 @@ int	cout_total_number(char **av, int k)
 	}
 	return (total);
 }
+
 void	validate(char **split2, t_stack *a)
 {
-	int	count;
-	long value;
+	int		count;
+	long	value;
 
 	count = 0;
 	while (split2[count])
@@ -54,6 +54,7 @@ void	validate(char **split2, t_stack *a)
 		count++;
 	}
 }
+
 void	validate_and_build(char **av, t_stack *a, int i)
 {
 	char	**split2;
@@ -98,23 +99,23 @@ t_config	parser(char **av, t_stack *a)
 	return (config);
 }
 
-void free_all(char **s, t_stack *a)
+void	free_all(char **s, t_stack *a)
 {
-    int i;
-    int	j;
+	int	i;
+	int	j;
 
-    j = 0;
-    i = 0;
-    if (s)
-    {
-        while (s[j])
-        {
-            free(s[j]);
-            j++;
-        }
-        free(s);
-    }
-    if (a->data)
-        free(a->data);
-    error_exit();
+	j = 0;
+	i = 0;
+	if (s)
+	{
+		while (s[j])
+		{
+			free(s[j]);
+			j++;
+		}
+		free(s);
+	}
+	if (a->data)
+		free(a->data);
+	error_exit();
 }

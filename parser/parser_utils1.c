@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_utils1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nappasam <nappasam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rgliga <rgliga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 20:52:17 by nappasam          #+#    #+#             */
-/*   Updated: 2026/03/04 16:23:45 by nappasam         ###   ########.fr       */
+/*   Updated: 2026/03/05 14:45:04 by rgliga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	ft_strcmp(char *s1, char *s2)
 		i++;
 	return (s1[i] - s2[i]);
 }
+
 void	error_exit(void)
 {
 	write(2, "Error\n", 6);
@@ -65,7 +66,7 @@ void	set_flags(char *flag, t_config *config)
 int	check_flags(char **av, t_config *config)
 {
 	int	i;
-    
+
 	i = 1;
 	while (av[i] && av[i][0] == '-' && av[i][1] == '-')
 	{

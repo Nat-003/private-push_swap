@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate_op.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nappasam <nappasam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rgliga <rgliga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 17:25:06 by nappasam          #+#    #+#             */
-/*   Updated: 2026/02/21 17:33:16 by nappasam         ###   ########.fr       */
+/*   Updated: 2026/03/05 14:49:51 by rgliga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,9 @@ void	rrr(t_program *p)
 	if (p->b->size >= 2)
 	{
 		last = p->b->data[p->b->size - 1];
-		i = p->b->size - 1;
-		while (i > 0)
-		{
+		i = p->b->size;
+		while (i-- > 0)
 			p->b->data[i] = p->b->data[i - 1];
-			i--;
-		}
 		p->b->data[0] = last;
 	}
 	p->ops->rrr++;
