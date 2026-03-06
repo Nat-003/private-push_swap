@@ -6,28 +6,38 @@ CFLAGS      = -Wall -Wextra -Werror -I -g3
 
 # Source Files
 # We list them explicitly to be safe, but include the 'operation' subdirectory
-SRCS        = main.c \
-              parser/parser.c \
-			  parser/parser_utils1.c \
-			  parser/parser_utils2.c \
-			  parser/parser_utils3.c \
-              utils.c \
-              ft_split.c \
-              disorder.c \
-              selection_and_bench/bench.c \
-			  selection_and_bench/config.c \
-              simple.c \
-              radix.c \
-              medium/medium.c \
-			  medium/medium_utils1.c \
-			  medium/medium_utils2.c \
-              operation/push_op.c \
-              operation/reverse_rotate_op.c \
-              operation/rotate_op.c \
-              operation/swap_op.c \
-			  smal_sort/sort_three.c \
-			  smal_sort/sort_five.c\
-			  smal_sort/sm.c 
+
+SRCS =		main.c \
+			\
+			algorithm/complex/radix.c \
+			algorithm/complex/radix_utils.c \
+			\
+			algorithm/medium/medium.c \
+			algorithm/medium/medium_utils1.c \
+			algorithm/medium/medium_utils2.c \
+			\
+			algorithm/simple/simple.c \
+			\
+			operation/push_op.c \
+			operation/reverse_rotate_op.c \
+			operation/rotate_op.c \
+			operation/swap_op.c \
+			\
+			parser/parser.c \
+			parser/parser_utils1.c \
+			parser/parser_utils2.c \
+			parser/parser_utils3.c \
+			\
+			selection_and_bench/bench.c \
+			selection_and_bench/config.c \
+			\
+			smal_sort/sm.c \
+			smal_sort/sort_five.c \
+			smal_sort/sort_three.c \
+			\
+			utils/disorder.c \
+			utils/ft_split.c \
+			utils/utils.c
 
 
 # Object Files
