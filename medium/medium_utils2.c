@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   medium_utils2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgliga <rgliga@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nappasam <nappasam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 16:21:11 by rgliga            #+#    #+#             */
-/*   Updated: 2026/03/05 16:21:39 by rgliga           ###   ########.fr       */
+/*   Updated: 2026/03/06 16:13:57 by nappasam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	find_position(t_stack *x, int max)
 {
@@ -46,45 +46,43 @@ void	push_back_to_a(t_program *p)
 		pa(p);
 	}
 }
-void	innit_vars(int *bucket_count, int *bucket_size, int *current_min,
-		int *current_max, int original_size)
+
+void	innit_vars(t_bucket *b, int original_size)
 {
-	*bucket_count = ft_sqrt(original_size);
-	if (*bucket_count == 0)
-		*bucket_count = 1;
-	*bucket_size = original_size / (*bucket_count);
-	*current_min = 0;
-	*current_max = *bucket_size - 1;
+	b->bucket_count = ft_sqrt(original_size);
+	if (b->bucket_count == 0)
+		b->bucket_count = 1;
+	b->bucket_size = original_size / b->bucket_count;
+	b->current_min = 0;
+	b->current_max = b->bucket_size - 1;
 }
+
 void	push_a_to_b(t_program *p, int original_size)
 {
-	int	i;
-	int	bucket_count;
-	int	bucket_size;
-	int	current_min;
-	int	current_max;
+	int			i;
+	t_bucket	b;
 
-	innit_vars(&bucket_count, &bucket_size, &current_min, &current_max,
-		original_size);
+	innit_vars(&b, original_size);
 	i = 0;
-	while (i < bucket_count)
+	while (i < b.bucket_count)
 	{
-		if (i == bucket_count - 1)
-			current_max = original_size - 1;
-		while (still_in_bucket(p->a, current_min, current_max))
+		if (i == b.bucket_count - 1)
+			b.current_max = original_size - 1;
+		while (still_in_bucket(p->a, b.current_min, b.current_max))
 		{
-			if (p->a->data[0] >= current_min && p->a->data[0] <= current_max)
+			if (p->a->data[0] >= b.current_min
+				&& p->a->data[0] <= b.current_max)
 				pb(p);
 			else
 				ra(p);
 		}
-		current_min += bucket_size;
-		current_max += bucket_size;
+		b.current_min += b.bucket_size;
+		b.current_max += b.bucket_size;
 		i++;
 	}
 }
-void	change_value_to_indexes(t_stack *a, t_ops *ops, int original_size,
-		int *copy)
+
+void	change_value_to_indexes(t_stack *a, int original_size, int *copy)
 {
 	int	i;
 	int	j;

@@ -2,7 +2,7 @@ NAME        = push_swap
 
 # Compiler and Flags
 CC          = cc
-# CFLAGS      = -Wall -Wextra -Werror -I. -g
+CFLAGS      = -Wall -Wextra -Werror -I -g3
 
 # Source Files
 # We list them explicitly to be safe, but include the 'operation' subdirectory
@@ -10,20 +10,25 @@ SRCS        = main.c \
               parser/parser.c \
 			  parser/parser_utils1.c \
 			  parser/parser_utils2.c \
+			  parser/parser_utils3.c \
               utils.c \
               ft_split.c \
               disorder.c \
-              bench.c \
+              selection_and_bench/bench.c \
+			  selection_and_bench/config.c \
               simple.c \
               radix.c \
-              medium.c \
+              medium/medium.c \
+			  medium/medium_utils1.c \
+			  medium/medium_utils2.c \
               operation/push_op.c \
               operation/reverse_rotate_op.c \
               operation/rotate_op.c \
               operation/swap_op.c \
 			  smal_sort/sort_three.c \
 			  smal_sort/sort_five.c\
-			  smal_sort/sm.c
+			  smal_sort/sm.c 
+
 
 # Object Files
 # This replaces the .c extension with .o
@@ -33,7 +38,7 @@ OBJS        = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC)  $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 # Standard clean rules
 clean:

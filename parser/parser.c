@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgliga <rgliga@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nappasam <nappasam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 20:49:34 by nappasam          #+#    #+#             */
-/*   Updated: 2026/03/05 14:48:42 by rgliga           ###   ########.fr       */
+/*   Updated: 2026/03/06 15:56:57 by nappasam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ t_config	parser(char **av, t_stack *a)
 	int			k;
 	int			total;
 	t_config	config;
-	long		value;
 
 	config.simple = 0;
 	config.medium = 0;
@@ -97,25 +96,4 @@ t_config	parser(char **av, t_stack *a)
 		config.adaptative = 1;
 	validate_and_build(av, a, i);
 	return (config);
-}
-
-void	free_all(char **s, t_stack *a)
-{
-	int	i;
-	int	j;
-
-	j = 0;
-	i = 0;
-	if (s)
-	{
-		while (s[j])
-		{
-			free(s[j]);
-			j++;
-		}
-		free(s);
-	}
-	if (a->data)
-		free(a->data);
-	error_exit();
 }

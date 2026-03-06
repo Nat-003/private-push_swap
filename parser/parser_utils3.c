@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parser_utils3.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nappasam <nappasam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/06 15:07:47 by nappasam          #+#    #+#             */
-/*   Updated: 2026/03/06 15:56:30 by nappasam         ###   ########.fr       */
+/*   Created: 2026/03/06 15:03:16 by nappasam          #+#    #+#             */
+/*   Updated: 2026/03/06 15:09:15 by nappasam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "../push_swap.h"
 
-int	main(int ac, char **av)
+void	free_all(char **s, t_stack *a)
 {
-	t_stack		a;
-	t_stack		b;
-	t_ops		ops;
-	t_config	config;
-	t_program	p;
+	int	i;
+	int	j;
 
-	(void)ac;
-	config = parser(av, &a);
-	p.a = &a;
-	p.b = &b;
-	p.ops = &ops;
-	p.config = &config;
-	innit_ops(&ops);
-	innit_stack_b(&a, &b, a.size);
-	if (is_sorted(&a) != 1)
+	j = 0;
+	i = 0;
+	if (s)
 	{
-		set_config(&p, disorder(a.data, a.size));
+		while (s[j])
+		{
+			free(s[j]);
+			j++;
+		}
+		free(s);
 	}
-	free(b.data);
-	free(a.data);
-	return (0);
+	if (a->data)
+		free(a->data);
+	error_exit();
 }

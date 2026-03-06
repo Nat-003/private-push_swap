@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   medium_utils1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgliga <rgliga@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nappasam <nappasam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 16:20:05 by rgliga            #+#    #+#             */
-/*   Updated: 2026/03/05 16:20:51 by rgliga           ###   ########.fr       */
+/*   Updated: 2026/03/06 16:07:19 by nappasam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	ft_sqrt(int x)
 {
@@ -36,6 +36,7 @@ int	*copy_arr(t_stack *a)
 	int	*copy;
 
 	copy = malloc(sizeof(int) * a->size);
+	i = 0;
 	if (!copy)
 		return (NULL);
 	while (i < a->size)
