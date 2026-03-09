@@ -6,7 +6,7 @@
 /*   By: nappasam <nappasam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 14:53:15 by rgliga            #+#    #+#             */
-/*   Updated: 2026/03/06 16:14:07 by nappasam         ###   ########.fr       */
+/*   Updated: 2026/03/09 15:49:00 by nappasam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,10 @@ typedef struct s_bucket
 	int			current_max;
 }				t_bucket;
 
-// parser
+// ft_printf
+int				ft_printf(const char *format, ...);
 
+// parser
 t_config		parser(char **av, t_stack *a);
 
 void			sort_three(t_program *p);

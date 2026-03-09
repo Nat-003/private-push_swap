@@ -6,7 +6,7 @@
 /*   By: nappasam <nappasam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 17:13:18 by nappasam          #+#    #+#             */
-/*   Updated: 2026/03/06 15:56:10 by nappasam         ###   ########.fr       */
+/*   Updated: 2026/03/09 15:48:05 by nappasam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ int	total_operation(t_ops *ops)
 	int	sum;
 
 	sum = 0;
-	printf("sa  : %d\n", ops->sa);
-	printf("sb  : %d\n", ops->sb);
-	printf("ss  : %d\n", ops->ss);
-	printf("pa  : %d\n", ops->pa);
-	printf("pb  : %d\n", ops->pb);
-	printf("ra  : %d\n", ops->ra);
-	printf("rb  : %d\n", ops->rb);
-	printf("rr  : %d\n", ops->rr);
-	printf("rra : %d\n", ops->rra);
-	printf("rrb : %d\n", ops->rrb);
-	printf("rrr : %d\n", ops->rrr);
+	ft_printf("sa  : %d\n", ops->sa);
+	ft_printf("sb  : %d\n", ops->sb);
+	ft_printf("ss  : %d\n", ops->ss);
+	ft_printf("pa  : %d\n", ops->pa);
+	ft_printf("pb  : %d\n", ops->pb);
+	ft_printf("ra  : %d\n", ops->ra);
+	ft_printf("rb  : %d\n", ops->rb);
+	ft_printf("rr  : %d\n", ops->rr);
+	ft_printf("rra : %d\n", ops->rra);
+	ft_printf("rrb : %d\n", ops->rrb);
+	ft_printf("rrr : %d\n", ops->rrr);
 	sum = ops->sa + ops->sb + ops->ss + ops->pa + ops->pb + ops->ra + ops->rb
 		+ ops->rr + ops->rra + ops->rrb + ops->rrr;
 	return (sum);
@@ -40,7 +40,7 @@ char	*adaptative_strat(float d)
 	res = "";
 	if (d < 0.30f)
 		res = "Simple / O(n2)";
-	else if (d < 0.50f)
+	else if (d <= 0.50f)
 		res = "Medium / O(nVn)";
 	else
 		res = "Complex / O(n log n)";
@@ -70,7 +70,7 @@ void	bench(t_ops *ops, float d, t_config *config)
 
 	res = total_operation(ops);
 	strategy = strat(config, d);
-	printf("strategy: %s\n", strategy);
-	printf("disorder: %f %% \n", d);
-	printf("Total operations: %d\n", res);
+	ft_printf("strategy: %s\n", strategy);
+	ft_printf("disorder: %f %% \n", d);
+	ft_printf("Total operations: %d\n", res);
 }

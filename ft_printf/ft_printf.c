@@ -1,21 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nappasam <nappasam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/05 14:50:41 by rgliga            #+#    #+#             */
-/*   Updated: 2026/03/09 14:16:56 by nappasam         ###   ########.fr       */
+/*   Created: 2025/11/11 11:34:01 by nappasam          #+#    #+#             */
+/*   Updated: 2025/11/19 14:18:00 by nappasam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "ft_printf.h"
 
-void	innit_stack_b(t_stack *a, t_stack *b, int size)
+int	ft_printf(const char *format, ...)
 {
-	b->data = malloc(sizeof(int) * size);
-	if (!b->data)
-		free_all(NULL, a);
-	b->size = 0;
+	va_list	args;
+	int		i;
+
+	va_start(args, format);
+	if (!format || (write(1, "", 0) == -1))
+		return (-1);
+	i = 0;
+	while (*format)
+	{
+		if (*format == '%' && *(format + 1) != '\0')
+		{
+			i += check_format(*(format + 1), &args);
+			format++;
+		}
+		else
+		{
+			i += ft_putchar(*format);
+		}
+		format++;
+	}
+	va_end(args);
+	return (i);
 }

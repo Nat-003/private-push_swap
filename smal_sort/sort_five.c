@@ -6,7 +6,7 @@
 /*   By: nappasam <nappasam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 14:34:20 by nappasam          #+#    #+#             */
-/*   Updated: 2026/03/06 17:08:09 by nappasam         ###   ########.fr       */
+/*   Updated: 2026/03/09 14:16:42 by nappasam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	sort_five(t_program *p)
 	}
 	sort_three(p);
 	if (p->b->size > 1 && p->b->data[0] < p->b->data[1])
-        sb(p);
+		sb(p);
 	while (p->b->size > 0)
-        pa(p);
+		pa(p);
 }
