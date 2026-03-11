@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nappasam <nappasam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rgliga <rgliga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 14:18:37 by nappasam          #+#    #+#             */
-/*   Updated: 2025/12/04 16:49:34 by nappasam         ###   ########.fr       */
+/*   Updated: 2026/03/11 13:42:12 by rgliga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	write(2, &c, 1);
 	return (1);
 }
 
@@ -27,7 +27,7 @@ int	ft_putstr(char *str)
 		str = "(null)";
 	while (str[i])
 	{
-		write(1, &str[i], 1);
+		write(2, &str[i], 1);
 		i++;
 	}
 	return (ft_strlen(str));
@@ -40,17 +40,17 @@ int	ft_putnbr(int n)
 	og = n;
 	if (n == -2147483648)
 	{
-		return (write(1, "-2147483648", 11));
+		return (write(2, "-2147483648", 11));
 	}
 	if (n < 0)
 	{
-		write(1, "-", 1);
+		write(2, "-", 1);
 		n = n * (-1);
 	}
 	if (n >= 0 && n <= 9)
 	{
 		n = n + '0';
-		write(1, &n, 1);
+		write(2, &n, 1);
 	}
 	else
 	{

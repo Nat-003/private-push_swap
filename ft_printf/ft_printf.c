@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nappasam <nappasam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rgliga <rgliga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 11:34:01 by nappasam          #+#    #+#             */
-/*   Updated: 2025/11/19 14:18:00 by nappasam         ###   ########.fr       */
+/*   Updated: 2026/03/11 13:40:57 by rgliga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_printf(const char *format, ...)
 	int		i;
 
 	va_start(args, format);
-	if (!format || (write(1, "", 0) == -1))
+	if (!format || (write(2, "", 0) == -1))
 		return (-1);
 	i = 0;
 	while (*format)

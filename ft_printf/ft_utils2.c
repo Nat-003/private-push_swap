@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nappasam <nappasam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rgliga <rgliga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 14:20:15 by nappasam          #+#    #+#             */
-/*   Updated: 2026/03/09 15:49:17 by nappasam         ###   ########.fr       */
+/*   Updated: 2026/03/11 13:42:24 by rgliga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_print_pointer(void *p)
 	ptr = (unsigned long)p;
 	if (!p)
 	{
-		write(1, "(nil)", 5);
+		write(2, "(nil)", 5);
 		return (i = 5);
 	}
 	write(1, "0x", 2);
@@ -52,7 +52,7 @@ int	ft_putnbr_unsigned(unsigned int n)
 	if (n <= 9)
 	{
 		n = n + '0';
-		write(1, &n, 1);
+		write(2, &n, 1);
 	}
 	else
 	{
